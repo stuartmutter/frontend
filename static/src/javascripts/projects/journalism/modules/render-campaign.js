@@ -14,11 +14,13 @@ const renderCampaign = (calloutNode: HTMLElement, calloutData): void => {
             calloutNode.innerHTML = campaignDiv;
         })
         .then(() => {
-            const cForm = document.querySelector(
+            const cForms = document.querySelectorAll(
                 '.element-campaign .campaign .campaign--snippet__body'
             );
-            if (cForm) {
-                cForm.addEventListener('submit', submitForm);
+            if (cForms.length > 0) {
+                cForms.forEach(form =>
+                    form.addEventListener('submit', submitForm)
+                );
             }
         });
 };
